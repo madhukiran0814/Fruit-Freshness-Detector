@@ -1,0 +1,62 @@
+{% extends "base.html" %} {% block body %}
+<body>
+  <!-- <img
+    src="/static/image/bangkit.jpg"
+    alt="Gambar bangkit"
+    class="d-block mx-auto mb-3"
+  /> -->
+  <h2 class="mb-0 fw-normal text-center">Fruit Freshness Detection</h2>
+  <br />
+
+
+
+  <center>
+    <button class="btn btn-success" id="start-camera">Start Camera</button>
+    <video id="video" width="320" height="240" autoplay></video>
+    <button class="btn btn-info" id="click-photo">Click Photo</button>
+    <canvas id="canvas" width="320" height="240"></canvas>
+
+    </center>
+
+
+<form
+  class="mx-auto small-container"
+  method="post"
+  enctype="multipart/form-data"
+  action="/checkout"
+>
+
+<input hidden name="image" id="image"></input>
+
+
+<script>
+
+    let camera_button = document.getElementById("start-camera");
+    let video = document.getElementById("video");
+    let click_button = document.getElementById("click-photo");
+    let canvas = document.getElementById("canvas");
+    
+
+
+    camera_button.addEventListener('click', async function() {
+           let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+        video.srcObject = stream;
+    });
+    
+    click_button.addEventListener('click', function() {
+           canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+           let image_data_url = canvas.toDataURL('image/jpeg');
+    
+           // data url of the image
+           console.log(image_data_url);
+
+        var data_ele = document.getElementById('image');
+        data_ele.value =image_data_url;
+    });
+    
+    
+    </script>
+  <button id="submit" class="btn btn-primary btn-lg w-100" type="submit">Submit</button>
+</form>
+</body>
+{% endblock body %}

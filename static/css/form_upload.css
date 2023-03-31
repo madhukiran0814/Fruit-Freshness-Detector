@@ -1,0 +1,31 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: #f5f5f5;
+}
+
+
+
+body {
+  background-image: url('https://wallpapershome.com/images/pages/pic_h/16216.jpg');
+  background-repeat: no-repeat;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  background-size: cover;
+}
+
+footer {
+  color: white;
+  background-color: #37474f;
+}
+
+.small-container {
+  max-width: 330px;
+  margin: 0 auto;
+}
+
+#submit:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}

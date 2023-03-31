@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block body %}
+  <section class="small-container w-100 text-center" aria-label="Recognize result wrapper">
+    <h3>Checkout</h3>
+    <img class="mb-4" src="{{base64_image}}" alt="submitted image" width="256" height="256">
+    <h4 class="mb-3 fw-normal">
+      <div>Maturity Rate</div>
+      <div aria-label="Persentase kesegaran">
+        {{freshness_percentage}}% ({{freshness_label}})
+      </div>
+    </h4>
+    </h4>
+    <h4 class="mb-3 fw-normal">
+      <div>Type :</div>
+      <div aria-label="Harga">{{object}}</div>
+    </h4>
+    <h4 class="mb-3 fw-normal">
+      <div>Calories :</div>
+      <div aria-label="Harga">{{calories}}</div>
+    </h4>
+    <div class="py-4">
+      <h4>Your Decision ?</h4>
+      <div class="btn-group" role="group" aria-label="Konfirmasi checkout">
+        <a href="/" class="btn btn-success" autofocus>Yes</a>
+        <a href="/" class="btn btn-danger" autofocus>No</a>
+      </div>
+    </div>
+  </section>
+{% endblock%}
